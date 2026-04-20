@@ -24,9 +24,7 @@ import { Book } from './books/entities/book.entity';
         database: configService.get<string>('DB_DATABASE', { infer: true }) || 'lab4_db',
         entities: [Book],
         synchronize: true, // solo para desarrollo
-        ssl: configService.get<string>('DB_SSL') === 'true'
-          ? { rejectUnauthorized: false }
-          : false,
+        ssl: { rejectUnauthorized: false },
       }),
     }),
 
